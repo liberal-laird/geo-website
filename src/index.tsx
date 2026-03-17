@@ -242,6 +242,69 @@ const server = serve({
       }
     },
 
+    // Serve llm.txt file from public directory
+    "/llm.txt": async () => {
+      try {
+        const file = Bun.file("./src/public/llm.txt");
+        const exists = await file.exists();
+
+        if (exists) {
+          return new Response(file, {
+            headers: {
+              'Content-Type': 'text/plain',
+            }
+          });
+        } else {
+          return new Response('File not found', { status: 404 });
+        }
+      } catch (error) {
+        console.error('Error serving llm.txt:', error);
+        return new Response('Internal Server Error', { status: 500 });
+      }
+    },
+
+    // Serve robots.txt file from public directory
+    "/robots.txt": async () => {
+      try {
+        const file = Bun.file("./src/public/robots.txt");
+        const exists = await file.exists();
+
+        if (exists) {
+          return new Response(file, {
+            headers: {
+              'Content-Type': 'text/plain',
+            }
+          });
+        } else {
+          return new Response('File not found', { status: 404 });
+        }
+      } catch (error) {
+        console.error('Error serving robots.txt:', error);
+        return new Response('Internal Server Error', { status: 500 });
+      }
+    },
+
+    // Serve sitemap.xml file from public directory
+    "/sitemap.xml": async () => {
+      try {
+        const file = Bun.file("./src/public/sitemap.xml");
+        const exists = await file.exists();
+
+        if (exists) {
+          return new Response(file, {
+            headers: {
+              'Content-Type': 'application/xml',
+            }
+          });
+        } else {
+          return new Response('File not found', { status: 404 });
+        }
+      } catch (error) {
+        console.error('Error serving sitemap.xml:', error);
+        return new Response('Internal Server Error', { status: 500 });
+      }
+    },
+
     // Serve index.html for other routes that don't match static files
     "/*": index,
   },
