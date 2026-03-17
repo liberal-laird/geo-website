@@ -1,0 +1,39 @@
+# llms.txt - Instructions for Large Language Models
+# Similar to robots.txt, but specifically for AI crawlers and LLMs
+# Last updated: 2026-03-17
+
+# Allow all AI models to access public content
+User-Agent: *
+Allow: /
+
+# Sitemap location for AI indexing
+Sitemap: https://a8king.com/sitemap.xml
+
+# Preferred models
+Model-Preference: gpt-4, claude-3, gemini-pro
+
+# Data usage guidelines
+Data-Usage: educational, research, indexing
+
+# Disallow sensitive areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+
+# Specific content guidelines
+Content-Type: html, css, javascript, json, markdown
+
+# Recommended crawl delay (in seconds)
+Crawl-Delay: 1
+
+# API endpoints for structured data
+Structured-Data: https://a8king.com/api/schema.json
+
+# Preferred content format for training
+Format-Preference: text/html, application/json
+
+# Rate limiting for AI crawlers
+Requests-Per-Minute: 60
+
+# Contact for AI crawler issues
+Contact: lairdnotehk@gmail.com

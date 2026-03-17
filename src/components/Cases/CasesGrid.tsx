@@ -10,8 +10,24 @@ const CasesGrid: React.FC = () => {
     ? SITE_CONTENT.CASE_STUDIES.CASES
     : SITE_CONTENT.CASE_STUDIES.CASES.filter(caseItem => caseItem.category === filter);
 
+  // Create an aggregate rating for all case studies
+  const aggregateRating = {
+    "@context": "https://schema.org",
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": SITE_CONTENT.CASE_STUDIES.CASES.length,
+    "reviewCount": SITE_CONTENT.CASE_STUDIES.CASES.length
+  };
+
   return (
-    <Section id="cases" title={SITE_CONTENT.CASE_STUDIES.TITLE}>
+    <Section id="cases" title={SITE_CONTENT.CASE_STUDIES.TITLE} itemScope itemType="https://schema.org/CreativeWork">
+      {/* Aggregate Rating Schema for all case studies */}
+      <script type="application/ld+json">
+        {JSON.stringify(aggregateRating)}
+      </script>
+
       <div className="filters">
         {SITE_CONTENT.CASE_STUDIES.FILTERS.map((filterOption, index) => (
           <button

@@ -30,7 +30,36 @@ export function App() {
   }
 
   return (
-    <div className="app">
+    <div className="app" itemScope itemType="https://schema.org/WebPage">
+      {/* BreadcrumbList Schema */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "首页",
+            "item": "https://a8king.com/"
+          }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "服务",
+            "item": "https://a8king.com/#ai-services"
+          }, {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "案例",
+            "item": "https://a8king.com/#cases"
+          }, {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "联系",
+            "item": "https://a8king.com/#contact"
+          }]
+        })}
+      </script>
+
       <Navbar />
       <main>
         <HeroSection />
@@ -40,7 +69,7 @@ export function App() {
         <ContactSection />
       </main>
 
-      <footer className="footer">
+      <footer className="footer" itemScope itemType="https://schema.org/WPFooter">
         <div className="footer-content">
           <div className="footer-section">
             <h3>AI<span className="ai-accent">MARKETING</span></h3>
@@ -60,12 +89,12 @@ export function App() {
 
           <div className="footer-section">
             <h4>联系方式</h4>
-            <p>Email: lairdnotehk@gmail.com</p>
+            <p>Email: <span itemProp="email">lairdnotehk@gmail.com</span></p>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; 2026 AI Marketing Solutions. 版权所有。</p>
+          <p>&copy; 2026 <span itemProp="copyrightHolder copyrightYear">AI Marketing Solutions</span>. 版权所有。</p>
         </div>
       </footer>
     </div>
