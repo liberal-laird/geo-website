@@ -1,3 +1,8 @@
 User-agent: *
 Allow: /
+
+# 明确允许 AdMob 和 Google 的广告爬虫访问
+User-agent: Google-adstxt
+Allow: /app-ads.txt
+
 Sitemap: https://a8king.com/sitemap.xml
